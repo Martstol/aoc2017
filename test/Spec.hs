@@ -33,13 +33,13 @@ test_day2part2_ex1 = TestCase (assertEqual "Failed for\n5 9 2 8\n9 4 7 3\n3 8 6 
 test_day2part2_input = TestCase (assertEqual "Failed for day 2 input" 258 (Day2.solvePart2 day2Input))
 
 -- DAY 3
-day3Input = 325489
+day3Input = "325489"
 
 test_day3part1_ex1 = TestCase (assertEqual "Failed for 1" 0 (Day3.solvePart1 "1"))
 test_day3part1_ex2 = TestCase (assertEqual "Failed for 12" 3 (Day3.solvePart1 "12"))
 test_day3part1_ex3 = TestCase (assertEqual "Failed for 23" 2 (Day3.solvePart1 "23"))
 test_day3part1_ex4 = TestCase (assertEqual "Failed for 1024" 31 (Day3.solvePart1 "1024"))
--- test_day3part1_input = TestCase (assertEqual "Failed for day 3 input" 0 (Day3.solvePart1 day3Input))
+test_day3part1_input = TestCase (assertEqual "Failed for day 3 input" 552 (Day3.solvePart1 day3Input))
 
 
 tests = TestList [
@@ -65,8 +65,8 @@ tests = TestList [
     TestLabel "Day 3 Part 1 Example 1" test_day3part1_ex1,
     TestLabel "Day 3 Part 1 Example 2" test_day3part1_ex2,
     TestLabel "Day 3 Part 1 Example 3" test_day3part1_ex3,
-    TestLabel "Day 3 Part 1 Example 4" test_day3part1_ex4
-    -- TestLabel "Day 3 Part 1 Example 4" test_day3part1_input
+    TestLabel "Day 3 Part 1 Example 4" test_day3part1_ex4,
+    TestLabel "Day 3 Part 1 Example 4" test_day3part1_input
     ]
 
 main :: IO Counts
