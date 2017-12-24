@@ -15,7 +15,8 @@ solvePart2 :: String -> Int
 solvePart2 input = checksum evenlyDivisible (parseInput input)
 
 evenlyDivisible :: [Int] -> Int
-evenlyDivisible xs = head [(div x y) | x <- xs, y <- xs, x /= y && (rem x y == 0)]
+evenlyDivisible xs = head [div x y | x <- xs, y <- xs, x /= y && (rem x y == 0)]
 
 checksum :: ([Int] -> Int) -> [[Int]] -> Int
 checksum f xs = sum (map f xs)
+

@@ -5,7 +5,7 @@ import Data.Map (Map, (!))
 import qualified Data.Map as Map
 
 createMovementList :: [Complex Double] -> [Int] -> [Complex Double]
-createMovementList (fst:snd:tail) (x:xs) = (replicate x fst) ++ (replicate x snd) ++ (createMovementList tail xs)
+createMovementList (fst:snd:tail) (x:xs) = replicate x fst ++ replicate x snd ++ createMovementList tail xs
 
 movementList :: [Complex Double]
 movementList = createMovementList (iterate (*(0 :+ 1)) (1 :+ 0)) [1..]
@@ -25,7 +25,7 @@ solvePart1 input = let
 solvePart2 :: String ->  Int
 solvePart2 input = let
         n = read input
-    in (populateMap n)
+    in populateMap n
 
 populateMap :: Int -> Int
 populateMap n = let
@@ -36,12 +36,12 @@ populateMap n = let
                 else v
     in foobar positions Map.empty
 
-eval :: (Complex Double) -> Map (Complex Double) Int -> Int
+eval :: Complex Double -> Map (Complex Double) Int -> Int
 eval c m
     | Map.null m = 1
     | otherwise  = sum (map snd (neighbours c m))
 
-neighbours :: (Complex Double) -> Map (Complex Double) Int -> [((Complex Double), Int)]
+neighbours :: Complex Double -> Map (Complex Double) Int -> [(Complex Double, Int)]
 neighbours (a :+ b) m = let
         member k = Map.member k m
         entry k = (k, m ! k)
@@ -49,9 +49,10 @@ neighbours (a :+ b) m = let
     in map entry (filter member neighbourhood)
 
 instance (Ord a) => Ord (Complex a) where
-    (a :+ b) `compare` (c :+ d)
+   (a :+ b) `compare` (c :+ d)
         | a > c = GT
         | a < c = LT
         | a == c && b > d = GT
         | a == c && b < d = LT
         | a == c && b == d = EQ
+

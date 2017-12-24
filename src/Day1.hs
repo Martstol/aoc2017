@@ -13,3 +13,4 @@ solvePart2 input = capcha (parseInput input) (length input `div` 2)
 
 capcha :: [Int] -> Int -> Int
 capcha digits stride = sum [x | (x, y) <- zip digits (drop stride (cycle digits)), x == y]
+
