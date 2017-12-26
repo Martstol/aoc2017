@@ -54,6 +54,9 @@ test_day4part1_ex1 = TestCase (assertEqual "Failed for aa bb cc dd ee\naa bb cc 
 
 test_day4part1_input = TestCase (assertEqual "Failed for input" 337 (Day4.solvePart1 day4Input))
 
+-- Day 4 Part 2
+test_day4part2_ex1 = TestCase (assertEqual "Failed for abcde fghij\nabcde xyz ecdab\na ab abc abd abf abj\niiii oiii ooii oooi oooo\noiii ioii iioi iiio\n" 3 (Day4.solvePart2 "abcde fghij\nabcde xyz ecdab\na ab abc abd abf abj\niiii oiii ooii oooi oooo\noiii ioii iioi iiio\n"))
+
 tests = TestList [
     TestLabel "Day 1 Part 1 Example 1" test_day1part1_ex1,
     TestLabel "Day 1 Part 1 Example 2" test_day1part1_ex2,
@@ -82,8 +85,10 @@ tests = TestList [
 
     TestLabel "Day 3 Part 2 Input" test_day3part2_input,
 
-    TestLabel "Day 4 Part 1 Example " test_day4part1_ex1,
-    TestLabel "Day 4 Part 1 Input " test_day4part1_input
+    TestLabel "Day 4 Part 1 Example 1" test_day4part1_ex1,
+    TestLabel "Day 4 Part 1 Input" test_day4part1_input,
+
+    TestLabel "Day 4 Part 2 Example 1" test_day4part2_ex1
     ]
 
 main :: IO Counts

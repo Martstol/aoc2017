@@ -11,4 +11,4 @@ getInputForDay n = "res/day" ++ show n ++ ".txt"
 main :: IO ()
 main = do
     content <- readFile (getInputForDay 4)
-    print (Day4.solvePart1 content)
+    print (Day4.solvePart2 content)
