@@ -29,24 +29,32 @@ library:
     - containers
 
 executables:
-  aoc2017-exe:
-    main:                Main.hs
-    source-dirs:         app
-    ghc-options:
-    - -threaded
-    - -rtsopts
-    - -with-rtsopts=-N
+  day1-exe:
+    main: Main.hs
+    source-dirs: app/day1
     dependencies:
     - aoc2017
+  day2-exe:
+    main: Main.hs
+    source-dirs: app/day2
+    dependencies:
+    - aoc2017
+  day3-exe:
+    main: Main.hs
+    source-dirs: app/day3
+    dependencies:
+    - aoc2017
+  day4-exe:
+    main: Main.hs
+    source-dirs: app/day4
+    dependencies:
+    - aoc2017
+
 
 tests:
   aoc2017-test:
     main:                Spec.hs
     source-dirs:         test
-    ghc-options:
-    - -threaded
-    - -rtsopts
-    - -with-rtsopts=-N
     dependencies:
     - aoc2017
     - HUnit
