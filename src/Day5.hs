@@ -1,10 +1,7 @@
 module Day5 (solvePart1, solvePart2) where
 
-mapIndex :: (a -> a) -> Int -> [a] -> [a]
-mapIndex _ _ [] = []
-mapIndex f i (x:xs)
-    | i == 0    = f x:xs
-    | otherwise = x:mapIndex f (i-1) xs
+mapIndex ::Int -> (a -> a) -> [a] -> [a]
+mapIndex i f xs = [if i == j then f x else x | (j, x) <- zip [0..] xs]
 
 jump :: Int -> [Int] -> Int
 jump i xs = i + (xs !! i)
@@ -15,7 +12,7 @@ indexInList i xs = i >= 0 && i < length xs
 escape :: (Int -> Int) -> [Int] -> Int
 escape f xs =
     let iter i n ys = if indexInList i ys
-        then iter (jump i ys) (n+1) (mapIndex f i ys)
+        then iter (jump i ys) (n+1) (mapIndex i f ys)
         else n
     in iter 0 0 xs
 
