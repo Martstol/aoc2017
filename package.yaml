@@ -23,7 +23,7 @@ dependencies:
 - base >= 4.7 && < 5
 
 library:
-  source-dirs: 
+  source-dirs:
     - src
   dependencies:
     - containers
@@ -49,7 +49,11 @@ executables:
     source-dirs: app/day4
     dependencies:
     - aoc2017
-
+  day5-exe:
+    main: Main.hs
+    source-dirs: app/day5
+    dependencies:
+    - aoc2017
 
 tests:
   aoc2017-test:
