@@ -1,25 +1,32 @@
 module Day5 (solvePart1, solvePart2) where
 
-import Data.Array.Unboxed
+import Control.Monad.ST
+import Data.Array.MArray
+import Data.Array.ST
 
-follow :: (Int -> Int) -> UArray Int Int -> Int -> Int -> Int
-follow f x i acc
-    | inRange (bounds x) i = follow f (x // [(i, f (x ! i))]) (i + (x ! i)) (acc+1)
-    | otherwise            = acc
-
-parseInstructions :: String -> UArray Int Int
+parseInstructions :: String -> ST s (STUArray s Int Int)
 parseInstructions input =
     let arrayContent = map read (lines input)
         arrayBounds  = (0, length arrayContent - 1)
-    in listArray arrayBounds arrayContent
+    in newListArray arrayBounds arrayContent
+
+follow :: (Int -> Int) -> STUArray s Int Int -> Int -> Int -> ST s Int
+follow f x i acc = do
+    b <- getBounds x
+    if inRange b i
+        then do
+            v <- readArray x i
+            writeArray x i (f v)
+            follow f x (i + v) (acc+1)
+        else return acc
+
+runInstructions :: (Int -> Int) -> String -> Int
+runInstructions f input = runST $ do
+    instr <- parseInstructions input
+    follow f instr 0 0
 
 solvePart1 :: String -> Int
-solvePart1 input =
-    let instructions = parseInstructions input
-    in follow (+1) instructions 0 0
+solvePart1 = runInstructions (+1)
 
 solvePart2 :: String -> Int
-solvePart2 input =
-    let instructions = parseInstructions input
-        modify       = \i -> if i >= 3 then i-1 else i+1
-    in follow modify instructions 0 0
+solvePart2 = runInstructions (\i -> if i >= 3 then i-1 else i+1)
