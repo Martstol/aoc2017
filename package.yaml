@@ -8,7 +8,6 @@ copyright:           "2017 Martin Stølen"
 
 extra-source-files:
 - README.md
-- ChangeLog.md
 
 # Metadata used when publishing your package
 synopsis:            Advent of Code 2017
@@ -24,41 +23,22 @@ dependencies:
 
 library:
   source-dirs:
-    - src
+  - src
   dependencies:
-    - containers
+  - containers
 
 executables:
-  day1-exe:
+  aoc2017-exe:
     main: Main.hs
-    source-dirs: app/day1
-    dependencies:
-    - aoc2017
-  day2-exe:
-    main: Main.hs
-    source-dirs: app/day2
-    dependencies:
-    - aoc2017
-  day3-exe:
-    main: Main.hs
-    source-dirs: app/day3
-    dependencies:
-    - aoc2017
-  day4-exe:
-    main: Main.hs
-    source-dirs: app/day4
-    dependencies:
-    - aoc2017
-  day5-exe:
-    main: Main.hs
-    source-dirs: app/day5
+    source-dirs: app
     dependencies:
     - aoc2017
 
 tests:
   aoc2017-test:
-    main:                Spec.hs
-    source-dirs:         test
+    main: Spec.hs
+    source-dirs: test
     dependencies:
     - aoc2017
-    - HUnit
+    - tasty
+    - tasty-hspec
