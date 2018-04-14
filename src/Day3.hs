@@ -5,7 +5,7 @@ import Data.Map (Map, (!))
 import qualified Data.Map as Map
 
 createMovementList :: [Complex Double] -> [Int] -> [Complex Double]
-createMovementList (fst:snd:tail) (x:xs) = replicate x fst ++ replicate x snd ++ createMovementList tail xs
+createMovementList (f:s:rest) (x:xs) = replicate x f ++ replicate x s ++ createMovementList rest xs
 
 movementList :: [Complex Double]
 movementList = createMovementList (iterate (*(0 :+ 1)) (1 :+ 0)) [1..]

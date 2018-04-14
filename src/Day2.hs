@@ -1,7 +1,5 @@
 module Day2 (solvePart1, solvePart2) where
 
-import Data.List
-
 parseInput :: String -> [[Int]]
 parseInput input = map (map read . words) (lines input)
 
