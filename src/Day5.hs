@@ -1,27 +1,25 @@
 module Day5 (solvePart1, solvePart2) where
 
-mapIndex ::Int -> (a -> a) -> [a] -> [a]
-mapIndex i f xs = [if i == j then f x else x | (j, x) <- zip [0..] xs]
+import Data.Array.Unboxed
 
-jump :: Int -> [Int] -> Int
-jump i xs = i + (xs !! i)
+follow :: (Int -> Int) -> UArray Int Int -> Int -> Int -> Int
+follow f x i acc
+    | inRange (bounds x) i = follow f (x // [(i, f (x ! i))]) (i + (x ! i)) (acc+1)
+    | otherwise            = acc
 
-indexInList :: Int -> [Int] -> Bool
-indexInList i xs = i >= 0 && i < length xs
-
-escape :: (Int -> Int) -> [Int] -> Int
-escape f xs =
-    let iter i n ys = if indexInList i ys
-        then iter (jump i ys) (n+1) (mapIndex i f ys)
-        else n
-    in iter 0 0 xs
+parseInstructions :: String -> UArray Int Int
+parseInstructions input =
+    let arrayContent = map read (lines input)
+        arrayBounds  = (0, length arrayContent - 1)
+    in listArray arrayBounds arrayContent
 
 solvePart1 :: String -> Int
 solvePart1 input =
-    let xs = map read (lines input)
-    in escape (+1) xs
+    let instructions = parseInstructions input
+    in follow (+1) instructions 0 0
 
 solvePart2 :: String -> Int
 solvePart2 input =
-    let xs = map read (lines input)
-    in escape (\i -> if i >= 3 then i-1 else i+1) xs
+    let instructions = parseInstructions input
+        modify       = \i -> if i >= 3 then i-1 else i+1
+    in follow modify instructions 0 0
