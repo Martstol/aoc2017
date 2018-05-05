@@ -5,6 +5,7 @@ import qualified Day2
 import qualified Day3
 import qualified Day4
 import qualified Day5
+import qualified Day6
 
 import System.Environment
 
@@ -29,6 +30,7 @@ solveDay day input = case day of
     3 -> solve Day3.solvePart1 Day3.solvePart2 input
     4 -> solve Day4.solvePart1 Day4.solvePart2 input
     5 -> solve Day5.solvePart1 Day5.solvePart2 input
+    6 -> solve Day6.solvePart1 Day6.solvePart2 input
     _ -> fail ("Invalid day: " ++ (show day))
 
 solve :: (String -> Int) -> (String -> Int) -> String -> IO ()

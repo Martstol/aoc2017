@@ -9,13 +9,7 @@ copyright:           "2017 Martin Stølen"
 extra-source-files:
 - README.md
 
-# Metadata used when publishing your package
 synopsis:            Advent of Code 2017
-# category:            None
-
-# To avoid duplicated efforts in documentation and dealing with the
-# complications of embedding Haddock markup inside cabal files, it is
-# common to point users to the README.md file.
 description:         Please see the README on Github at <https://github.com/martstol/aoc2017#readme>
 
 dependencies:
