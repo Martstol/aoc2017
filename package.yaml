@@ -21,10 +21,7 @@ ghc-options:
 - -Wincomplete-record-updates
 - -Wincomplete-uni-patterns
 - -Wredundant-constraints
-- -threaded
 - -O2
-- -rtsopts
-- -with-rtsopts=-N
 
 library:
   source-dirs:
@@ -39,6 +36,16 @@ executables:
     source-dirs: app
     dependencies:
     - aoc2017
+    ghc-options:
+    - -Wall
+    - -Wcompat
+    - -Wincomplete-record-updates
+    - -Wincomplete-uni-patterns
+    - -Wredundant-constraints
+    - -threaded
+    - -O2
+    - -rtsopts
+    - -with-rtsopts=-N
 
 tests:
   aoc2017-test:
@@ -49,4 +56,14 @@ tests:
     - tasty
     - tasty-hspec
     - tasty-auto
+    ghc-options:
+    - -Wall
+    - -Wcompat
+    - -Wincomplete-record-updates
+    - -Wincomplete-uni-patterns
+    - -Wredundant-constraints
+    - -threaded
+    - -O2
+    - -rtsopts
+    - -with-rtsopts=-N
 

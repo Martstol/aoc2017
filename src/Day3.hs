@@ -52,7 +52,7 @@ instance (Ord a) => Ord (Complex a) where
    (a :+ b) `compare` (c :+ d)
         | a > c = GT
         | a < c = LT
-        | a == c && b > d = GT
-        | a == c && b < d = LT
-        | a == c && b == d = EQ
+        | b > d = GT
+        | b < d = LT
+        | b == d = EQ
 
