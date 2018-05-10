@@ -1,6 +1,6 @@
 module Day1 (solvePart1, solvePart2) where
 
-import Data.Char
+import           Data.Char
 
 parseInput :: String -> [Int]
 parseInput = map digitToInt

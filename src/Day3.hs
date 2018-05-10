@@ -1,8 +1,8 @@
 module Day3 (solvePart1, solvePart2) where
 
-import Data.Complex
-import Data.Map (Map, (!))
-import qualified Data.Map as Map
+import           Data.Complex
+import           Data.Map     (Map, (!))
+import qualified Data.Map     as Map
 
 createMovementList :: [Complex Double] -> [Int] -> [Complex Double]
 createMovementList (f:s:rest) (x:xs) = replicate x f ++ replicate x s ++ createMovementList rest xs
@@ -31,8 +31,8 @@ populateMap :: Int -> Int
 populateMap n = let
         foobar (p:ps) m = let
                 v = eval p m
-            in if v <= n 
-                then foobar ps (Map.insert p v m) 
+            in if v <= n
+                then foobar ps (Map.insert p v m)
                 else v
     in foobar positions Map.empty
 

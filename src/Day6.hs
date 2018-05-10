@@ -1,6 +1,6 @@
 module Day6 (solvePart1, solvePart2) where
 
-import Data.List (elemIndex)
+import           Data.List (elemIndex)
 
 type Banks = [Int]
 
@@ -11,8 +11,8 @@ pick :: Banks -> Int
 pick banks = pick' 0 0 banks
     where
         pick' i _ [] = i
-        pick' i n (a:as) = if banks !! i >= a 
-                             then pick' i (n+1) as 
+        pick' i n (a:as) = if banks !! i >= a
+                             then pick' i (n+1) as
                              else pick' n (n+1) as
 
 redistribute :: Int -> Int -> Banks -> Banks

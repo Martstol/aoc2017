@@ -1,8 +1,8 @@
 module Day5 (solvePart1, solvePart2) where
 
-import Control.Monad.ST
-import Data.Array.MArray
-import Data.Array.ST
+import           Control.Monad.ST
+import           Data.Array.MArray
+import           Data.Array.ST
 
 parseInstructions :: String -> ST s (STUArray s Int Int)
 parseInstructions input =
@@ -30,3 +30,4 @@ solvePart1 = runInstructions (+1)
 
 solvePart2 :: String -> Int
 solvePart2 = runInstructions (\i -> if i >= 3 then i-1 else i+1)
+

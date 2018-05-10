@@ -1,8 +1,8 @@
 module Day5Test where
 
-import Day5
+import           Day5
 
-import Test.Tasty.Hspec
+import           Test.Tasty.Hspec
 
 spec_day5_solvePart1_examples :: Spec
 spec_day5_solvePart1_examples = do
@@ -26,3 +26,4 @@ spec_day5_solvePart2_input = do
     input <- runIO (readFile "res/day5.txt")
     it "Day 5 part 2 for input" $
         solvePart2 input `shouldBe` 31150702
+

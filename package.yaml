@@ -15,6 +15,17 @@ description:         Please see the README on Github at <https://github.com/mart
 dependencies:
 - base >= 4.7 && < 5
 
+ghc-options:
+- -Wall
+- -Wcompat
+- -Wincomplete-record-updates
+- -Wincomplete-uni-patterns
+- -Wredundant-constraints
+- -threaded
+- -O2
+- -rtsopts
+- -with-rtsopts=-N
+
 library:
   source-dirs:
   - src
@@ -38,3 +49,4 @@ tests:
     - tasty
     - tasty-hspec
     - tasty-auto
+

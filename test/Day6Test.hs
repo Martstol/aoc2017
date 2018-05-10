@@ -1,8 +1,8 @@
 module Day6Test where
 
-import Day6
+import           Day6
 
-import Test.Tasty.Hspec
+import           Test.Tasty.Hspec
 
 spec_day6_solvePart1_example :: Spec
 spec_day6_solvePart1_example = do

@@ -1,6 +1,6 @@
 module Day4 (solvePart1, solvePart2) where
 
-import Data.List (nub, sort)
+import           Data.List (nub, sort)
 
 noDuplicates :: Eq a => [a] -> Bool
 noDuplicates x = nub x == x
@@ -33,3 +33,4 @@ numberOfValidPassphrases' phrases = length (filter validPassphrase' phrases)
 
 solvePart2 :: String -> Int
 solvePart2 input = numberOfValidPassphrases' (lines input)
+
