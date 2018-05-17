@@ -29,6 +29,8 @@ library:
   dependencies:
   - containers
   - array
+  - hashtables
+  - hashable
 
 executables:
   aoc2017-exe:
